@@ -1,5 +1,7 @@
 package com.kallepaulsson.greetingservice;
 
+import static junit.framework.Assert.assertEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +17,7 @@ public class GreetingServiceApplicationTests {
 
     @Test
     public void dummyTest() {
-        Assert.assertEquals(4, 4);
+        assertEquals(4, 4);
     }
 
 }
