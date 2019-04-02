@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './mvnw clean'
-                sh 'echo "Hello World"'
+                sh './mvnw clean package'
             }
             post {
                 always {
