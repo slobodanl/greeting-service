@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh './mvnw clean'
-                sh 'echo "Hello World!!!!!!!"'
+                sh 'echo "Hello World"'
             }
         }
     }
