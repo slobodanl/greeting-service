@@ -1,18 +1,20 @@
 pipeline {
-    node {
-        jdk = tool name: 'JDK17'
-        env.JAVA_HOME = "${jdk}"
 
-        echo "jdk installation path is: ${jdk}"
+    agent {
+        node {
+            jdk = tool name: 'JDK17'
+            env.JAVA_HOME = "${jdk}"
 
-        // next 2 are equivalents
-        sh "${jdk}/bin/java -version"
+            echo "jdk installation path is: ${jdk}"
 
-        // note that simple quote strings are not evaluated by Groovy
-        // substitution is done by shell script using environment
-        sh '$JAVA_HOME/bin/java -version'
+            // next 2 are equivalents
+            sh "${jdk}/bin/java -version"
+
+            // note that simple quote strings are not evaluated by Groovy
+            // substitution is done by shell script using environment
+            sh '$JAVA_HOME/bin/java -version'
+        }
     }
-    agent any
     stages {
         stage('Build') {
             steps {
