@@ -13,4 +13,9 @@ public class GreetingServiceApplicationTests {
     public void contextLoads() {
     }
 
+    @Test
+    public void dummyTest() {
+        Assert.assertEquals(4, 4);
+    }
+
 }
