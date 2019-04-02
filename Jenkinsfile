@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'printenv'
                 sh './mvnw clean package'
             }
             post {
