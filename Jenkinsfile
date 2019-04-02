@@ -3,9 +3,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean'
-                sh 'echo "Hello World"'
+                sh './mvnw -B -DskipTests clean package'
             }
+        }
+        stage('Test') {
+            steps {
+                sh './mvnw test'
+            }
+        }
+    }
+
+    post {
+        always {
+            junit 'target/surefire-reports/*.xml'
         }
     }
 }
