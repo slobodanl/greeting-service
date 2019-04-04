@@ -3,9 +3,6 @@ pipeline {
     tools {
         jdk 'Corretto-11'
     }
-    environment {
-        DOCKER_HUB_COMMON_CREDS = credentials('docker-hub-common-creds')
-    }
     stages {
         stage('Build') {
             steps {
@@ -16,6 +13,17 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
+            }
+        }
+        stage('Publish') {
+            environment {
+                DOCKER_HUB = credentials('docker-hub-common-creds')
+            }
+            steps {
+                sh 'mvn clean compile -B -e jib:build \
+                    -Djib.to.auth.username=${DOCKER_HUB_USR} \
+                    -Djib.to.auth.password=${DOCKER_HUB_PSW} \
+                    -DskipTests'
             }
         }
     }
