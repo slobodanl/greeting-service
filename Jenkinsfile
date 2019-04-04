@@ -20,7 +20,7 @@ pipeline {
                 DOCKER_HUB = credentials('docker-hub-common-creds')
             }
             steps {
-                sh 'mvn clean compile -B -e jib:build \
+                sh './mvnw clean compile -B -e jib:build \
                     -Djib.to.auth.username=${DOCKER_HUB_USR} \
                     -Djib.to.auth.password=${DOCKER_HUB_PSW} \
                     -DskipTests'
