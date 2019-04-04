@@ -41,6 +41,7 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>1.0.2</version>
                 <configuration>
+                    <to>docker.io/paulssonkalle/${artifactId}-${version}</to>
                     <container>
                         <ports>8080</ports>
                     </container>
