@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.kallepaulsson</groupId>
     <artifactId>greeting-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version> <!-- This should not change, ever -->
+    <version>0.0.1-SNAPSHOT</version> <!-- There's no need for this to change -->
     <name>greeting-service</name>
     <description>Demo project for Spring Boot</description>
 
@@ -40,7 +40,7 @@
             <plugin>
                 <artifactId>maven-install-plugin</artifactId>
                 <configuration>
-                    <skip>true</skip> <!-- we push the container image to the local registry instead -->
+                    <skip>true</skip>
                 </configuration>
             </plugin>
 
@@ -48,7 +48,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <configuration>
-                    <skip>true</skip> <!--  we push the image instead  -->
+                    <skip>true</skip>
                 </configuration>
             </plugin>
             <plugin>
@@ -57,10 +57,9 @@
                 <version>1.0.2</version>
                 <configuration>
                     <to>
-                        <image>registry.hub.docker.com/paulssonkalle/${project.artifactId}</image>
-                        <tags>
-                            <tag>${version.number}</tag>
-                        </tags>
+                        <image>
+                            registry.hub.docker.com/paulssonkalle/${project.artifactId}:${version.number}
+                        </image>
                     </to>
                     <container>
                         <ports>8080</ports>
