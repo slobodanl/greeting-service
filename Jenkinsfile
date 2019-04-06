@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo $DOCKER_HUB_COMMON_CREDS'
                 sh './mvnw clean package'
             }
             post {

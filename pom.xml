@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.kallepaulsson</groupId>
     <artifactId>greeting-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version> <!-- This should not change, ever -->
     <name>greeting-service</name>
     <description>Demo project for Spring Boot</description>
 
@@ -37,6 +37,20 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip> <!-- we push the container image to the local registry instead -->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip> <!--  we push the image instead  -->
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>1.0.2</version>
@@ -48,11 +62,6 @@
                         <ports>8080</ports>
                     </container>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
             </plugin>
         </plugins>
     </build>
