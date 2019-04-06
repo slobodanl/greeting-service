@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.kallepaulsson</groupId>
     <artifactId>greeting-service</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>greeting-service</name>
     <description>Demo project for Spring Boot</description>
 
@@ -42,7 +42,7 @@
                 <version>1.0.2</version>
                 <configuration>
                     <to>
-                        <image>docker.io/paulssonkalle/${project.artifactId}-${project.artifactId}</image>
+                        <image>registry.hub.docker.com/paulssonkalle/${project.artifactId}</image>
                     </to>
                     <container>
                         <ports>8080</ports>
