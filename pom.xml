@@ -15,7 +15,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <version.number>${git.commit.time}.${git.commit.id.abbrev}</version.number>
+        <version.number>${git.commit.id.abbrev}</version.number>
     </properties>
 
     <dependencies>
@@ -79,7 +79,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <dateFormat>yyyyMMdd-HHmmss</dateFormat><!--  human-readable part of the version number -->
                     <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
                     <generateGitPropertiesFile>false</generateGitPropertiesFile><!-- somehow necessary. otherwise the variables are not available in the pom -->
                 </configuration>
